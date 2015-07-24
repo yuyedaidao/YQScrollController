@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YQScrollController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : YQScrollController
 
 
 @end

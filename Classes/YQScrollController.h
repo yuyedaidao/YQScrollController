@@ -18,6 +18,7 @@
 @property (nonatomic, assign) IBInspectable CGFloat titleHeight;
 @property (nonatomic, strong) IBInspectable UIColor *titleBackground;
 @property (nonatomic, strong) IBInspectable UIColor *titleColor;
+@property (nonatomic, strong) IBInspectable UIColor *titleSelectedColor;
 @property (nonatomic, strong) IBInspectable UIFont *titleFont;
 
 @end

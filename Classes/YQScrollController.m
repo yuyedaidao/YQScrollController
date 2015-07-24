@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *containerViews;
+@property (nonatomic, strong) NSMutableArray *titleButtons;
 @end
 
 @implementation YQScrollController
@@ -49,18 +50,33 @@
     [self prepareScrollView];
 }
 
-
+#pragma mark prepare
 - (void)prepareTitleView{
     UIView *titleBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), self.titleHeight)];
-    titleBgView.backgroundColor = self.titleColor;
+    titleBgView.backgroundColor = self.titleBackground;
     [self.view addSubview:titleBgView];
-    
+    NSAssert(self.viewControllers.count, @"大叔，你都没有给我控制器，我给你控制啥？");
+    CGFloat width = CGRectGetWidth(self.view.bounds)/self.viewControllers.count;
+    [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController *obj, NSUInteger idx, BOOL *stop) {
+        UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [titleButton setTitle:obj.title forState:UIControlStateNormal];
+        [titleButton setTitleColor:self.titleColor forState:UIControlStateNormal];
+        [titleButton setTitleColor:self.titleSelectedColor forState:UIControlStateSelected];
+        [titleButton addTarget:self action:@selector(titleSelected:) forControlEvents:UIControlEventTouchUpInside];
+        [titleBgView addSubview:titleButton];
+        [titleButton sizeToFit];
+        titleButton.center = CGPointMake(width*idx+width/2, CGRectGetHeight(titleBgView.bounds)/2);
+        titleButton.tag = idx;
+        [self.titleButtons addObject:titleButton];
+
+    }];
 }
 
 - (void)prepareScrollView{
     
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.titleHeight, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)-self.titleHeight)];
     [self.view addSubview:self.scrollView];
+    self.scrollView.bounces = NO;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.delegate = self;
     self.containerViews = @[].mutableCopy;
@@ -74,9 +90,18 @@
         obj.view.frame = view.bounds;
         [obj didMoveToParentViewController:self];
     }];
+    self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.bounds)*self.viewControllers.count, CGRectGetHeight(self.scrollView.bounds));
 
 }
 
+
+#pragma mark self handler
+- (void)titleSelected:(UIButton *)button{
+    NSInteger index = button.tag;
+    button.selected = YES;
+    [self.scrollView scrollRectToVisible:CGRectMake(index * CGRectGetWidth(self.scrollView.bounds), 0, CGRectGetWidth(self.scrollView.bounds), CGRectGetHeight(self.scrollView.bounds)) animated:YES];
+
+}
 /*
  - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
  

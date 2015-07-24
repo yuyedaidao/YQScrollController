@@ -15,6 +15,8 @@
 		21BBB8741B62598600072BBD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21BBB8721B62598600072BBD /* LaunchScreen.xib */; };
 		21BBB8801B62598600072BBD /* YQScrollControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21BBB87F1B62598600072BBD /* YQScrollControllerTests.m */; };
 		21BBB88C1B625B1D00072BBD /* YQScrollController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21BBB88B1B625B1D00072BBD /* YQScrollController.m */; };
+		557CE9A21B6288A5008CC005 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557CE9A11B6288A5008CC005 /* FirstViewController.m */; };
+		557CE9A51B6288BB008CC005 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557CE9A41B6288BB008CC005 /* SecondViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,10 @@
 		21BBB87F1B62598600072BBD /* YQScrollControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQScrollControllerTests.m; sourceTree = "<group>"; };
 		21BBB88A1B625B1D00072BBD /* YQScrollController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQScrollController.h; sourceTree = "<group>"; };
 		21BBB88B1B625B1D00072BBD /* YQScrollController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQScrollController.m; sourceTree = "<group>"; };
+		557CE9A01B6288A5008CC005 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		557CE9A11B6288A5008CC005 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		557CE9A31B6288BB008CC005 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		557CE9A41B6288BB008CC005 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,10 @@
 				21BBB8701B62598600072BBD /* Images.xcassets */,
 				21BBB8721B62598600072BBD /* LaunchScreen.xib */,
 				21BBB8631B62598600072BBD /* Supporting Files */,
+				557CE9A01B6288A5008CC005 /* FirstViewController.h */,
+				557CE9A11B6288A5008CC005 /* FirstViewController.m */,
+				557CE9A31B6288BB008CC005 /* SecondViewController.h */,
+				557CE9A41B6288BB008CC005 /* SecondViewController.m */,
 			);
 			path = YQScrollController;
 			sourceTree = "<group>";
@@ -232,8 +242,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				557CE9A51B6288BB008CC005 /* SecondViewController.m in Sources */,
 				21BBB88C1B625B1D00072BBD /* YQScrollController.m in Sources */,
 				21BBB86C1B62598600072BBD /* ViewController.m in Sources */,
+				557CE9A21B6288A5008CC005 /* FirstViewController.m in Sources */,
 				21BBB8691B62598600072BBD /* AppDelegate.m in Sources */,
 				21BBB8661B62598600072BBD /* main.m in Sources */,
 			);
@@ -430,6 +442,7 @@
 				21BBB8851B62598600072BBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21BBB8861B62598600072BBD /* Build configuration list for PBXNativeTarget "YQScrollControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +451,7 @@
 				21BBB8881B62598600072BBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
