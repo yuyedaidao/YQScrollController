@@ -14,6 +14,7 @@
 		21BBB8711B62598600072BBD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21BBB8701B62598600072BBD /* Images.xcassets */; };
 		21BBB8741B62598600072BBD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21BBB8721B62598600072BBD /* LaunchScreen.xib */; };
 		21BBB8801B62598600072BBD /* YQScrollControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21BBB87F1B62598600072BBD /* YQScrollControllerTests.m */; };
+		21BBB88C1B625B1D00072BBD /* YQScrollController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21BBB88B1B625B1D00072BBD /* YQScrollController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		21BBB8791B62598600072BBD /* YQScrollControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YQScrollControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BBB87E1B62598600072BBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21BBB87F1B62598600072BBD /* YQScrollControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQScrollControllerTests.m; sourceTree = "<group>"; };
+		21BBB88A1B625B1D00072BBD /* YQScrollController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQScrollController.h; sourceTree = "<group>"; };
+		21BBB88B1B625B1D00072BBD /* YQScrollController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQScrollController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,7 @@
 		21BBB8571B62598600072BBD = {
 			isa = PBXGroup;
 			children = (
+				21BBB8891B625AFC00072BBD /* Classes */,
 				21BBB8621B62598600072BBD /* YQScrollController */,
 				21BBB87C1B62598600072BBD /* YQScrollControllerTests */,
 				21BBB8611B62598600072BBD /* Products */,
@@ -117,6 +121,15 @@
 				21BBB87E1B62598600072BBD /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		21BBB8891B625AFC00072BBD /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				21BBB88A1B625B1D00072BBD /* YQScrollController.h */,
+				21BBB88B1B625B1D00072BBD /* YQScrollController.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21BBB88C1B625B1D00072BBD /* YQScrollController.m in Sources */,
 				21BBB86C1B62598600072BBD /* ViewController.m in Sources */,
 				21BBB8691B62598600072BBD /* AppDelegate.m in Sources */,
 				21BBB8661B62598600072BBD /* main.m in Sources */,
