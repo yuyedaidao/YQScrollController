@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  s.platform     = :ios, "5.0"
+  s.platform     = :ios, "6.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -103,7 +103,7 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  # s.resource  = "Classes/*.xcassets"
+  #s.resource  = "Classes/images.xcassets"
   s.resources = "Classes/*.xcassets"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
