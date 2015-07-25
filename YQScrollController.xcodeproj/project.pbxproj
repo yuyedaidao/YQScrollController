@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210030DC1B6376E000A3638A /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 210030DB1B6376E000A3638A /* images.xcassets */; };
 		21BBB8661B62598600072BBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21BBB8651B62598600072BBD /* main.m */; };
 		21BBB8691B62598600072BBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21BBB8681B62598600072BBD /* AppDelegate.m */; };
 		21BBB86C1B62598600072BBD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21BBB86B1B62598600072BBD /* ViewController.m */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		210030DB1B6376E000A3638A /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		21BBB8601B62598600072BBD /* YQScrollController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YQScrollController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BBB8641B62598600072BBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21BBB8651B62598600072BBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				21BBB88A1B625B1D00072BBD /* YQScrollController.h */,
 				21BBB88B1B625B1D00072BBD /* YQScrollController.m */,
+				210030DB1B6376E000A3638A /* images.xcassets */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21BBB86F1B62598600072BBD /* Main.storyboard in Resources */,
+				210030DC1B6376E000A3638A /* images.xcassets in Resources */,
 				21BBB8741B62598600072BBD /* LaunchScreen.xib in Resources */,
 				21BBB8711B62598600072BBD /* Images.xcassets in Resources */,
 			);
