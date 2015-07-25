@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
                    * Finally, don't worry about the indent, CocoaPods strips it!
                    DESC
 
-  s.homepage     = "http://EXAMPLE/YQScrollController"
+  s.homepage     = "https://github.com/yuyedaidao/YQScrollController"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  s.platform     = :ios, "5.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -103,8 +103,8 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  s.resource  = "Classes/*.xcassets"
-  # s.resources = "Resources/*.png"
+  # s.resource  = "Classes/*.xcassets"
+  s.resources = "Classes/*.xcassets"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
