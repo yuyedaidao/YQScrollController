@@ -104,7 +104,7 @@ Pod::Spec.new do |s|
   #
 
   #s.resource  = "Classes/images.xcassets"
-  s.resources = "Classes/*.xcassets"
+  s.resources = "Resources/*"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
