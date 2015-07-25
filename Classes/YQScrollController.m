@@ -14,6 +14,9 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *containerViews;
 @property (nonatomic, strong) NSMutableArray *titleButtons;
+@property (nonatomic, strong) UIImageView *titleFlagImgView;
+@property (nonatomic, assign) NSInteger currentIndex;
+@property (nonatomic, assign) CGFloat segmentWidth;
 @end
 
 @implementation YQScrollController
@@ -25,6 +28,7 @@
     _titleColor = [UIColor blackColor];
     _titleHeight = 30;
     _titleBackground = [UIColor whiteColor];
+    _firstSelectedIndex = 0;
 }
 
 - (instancetype)init{
@@ -55,8 +59,13 @@
     UIView *titleBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), self.titleHeight)];
     titleBgView.backgroundColor = self.titleBackground;
     [self.view addSubview:titleBgView];
-    NSAssert(self.viewControllers.count, @"大叔，你都没有给我控制器，我给你控制啥？");
-    CGFloat width = CGRectGetWidth(self.view.bounds)/self.viewControllers.count;
+    
+    self.titleFlagImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"blue_line_and_shadow"]];
+    [titleBgView addSubview:self.titleFlagImgView];
+    self.titleFlagImgView.frame = CGRectMake(0, 0, 59, self.titleHeight);
+    NSAssert(self.viewControllers.count, @"大叔，你都没有给ViewController，我给你控制啥？");
+    self.segmentWidth = CGRectGetWidth(self.view.bounds)/self.viewControllers.count;
+    self.titleButtons = [NSMutableArray array];
     [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController *obj, NSUInteger idx, BOOL *stop) {
         UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [titleButton setTitle:obj.title forState:UIControlStateNormal];
@@ -64,12 +73,17 @@
         [titleButton setTitleColor:self.titleSelectedColor forState:UIControlStateSelected];
         [titleButton addTarget:self action:@selector(titleSelected:) forControlEvents:UIControlEventTouchUpInside];
         [titleBgView addSubview:titleButton];
+        titleButton.contentEdgeInsets = UIEdgeInsetsMake(5, 15, 5, 15);
         [titleButton sizeToFit];
-        titleButton.center = CGPointMake(width*idx+width/2, CGRectGetHeight(titleBgView.bounds)/2);
+        titleButton.center = CGPointMake(self.segmentWidth*idx+self.segmentWidth/2, CGRectGetHeight(titleBgView.bounds)/2);
         titleButton.tag = idx;
         [self.titleButtons addObject:titleButton];
-
+        if(idx == self.firstSelectedIndex){
+            self.titleFlagImgView.center = CGPointMake(titleButton.center.x, self.titleHeight/2);
+            self.currentIndex = self.firstSelectedIndex;
+        }
     }];
+    self.selectedIndex = self.currentIndex;
 }
 
 - (void)prepareScrollView{
@@ -96,23 +110,60 @@
 
 
 #pragma mark self handler
-- (void)titleSelected:(UIButton *)button{
-    NSInteger index = button.tag;
-    button.selected = YES;
-    [self.scrollView scrollRectToVisible:CGRectMake(index * CGRectGetWidth(self.scrollView.bounds), 0, CGRectGetWidth(self.scrollView.bounds), CGRectGetHeight(self.scrollView.bounds)) animated:YES];
 
+- (void)setSelectedIndex:(NSInteger)selectedIndex{
+    [self setSelectedIndex:selectedIndex animated:NO];
+    
+}
+- (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated{
+    NSAssert(selectedIndex < self.viewControllers.count, @"越界了大哥");
+    if(_selectedIndex != selectedIndex){
+        _selectedIndex = selectedIndex;
+        self.currentIndex = selectedIndex;
+        [self.scrollView scrollRectToVisible:CGRectMake(self.segmentWidth*selectedIndex, 0, self.segmentWidth, CGRectGetHeight(self.scrollView.bounds)) animated:animated];
+        UIButton *titleButton = self.titleButtons[selectedIndex];
+        [UIView animateWithDuration:0.3 animations:^{
+            self.titleFlagImgView.center = titleButton.center;
+        } completion:nil];
+    }
+    
+}
+
+- (void)titleSelected:(UIButton *)titleButton{
+    [self titleSelected:titleButton scrollVC:YES];
+}
+
+- (void)titleSelected:(UIButton *)titleButton scrollVC:(BOOL)scroll{
+    NSInteger index = titleButton.tag;
+    if(self.currentIndex == index){
+        return;
+    }
+    self.currentIndex = index;
+    [self.titleButtons enumerateObjectsUsingBlock:^(UIButton *obj, NSUInteger idx, BOOL *stop) {
+        obj.selected = (titleButton == obj);
+    }];
+    if(scroll){
+        [self.scrollView scrollRectToVisible:CGRectMake(index * CGRectGetWidth(self.scrollView.bounds), 0, CGRectGetWidth(self.scrollView.bounds), CGRectGetHeight(self.scrollView.bounds)) animated:YES];
+    }
+    [UIView animateWithDuration:0.3 animations:^{
+        self.titleFlagImgView.center = titleButton.center;
+    } completion:nil];
 }
 /*
  - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
  
  }
+ */
  - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
- 
+     NSInteger index = scrollView.contentOffset.x/CGRectGetWidth(scrollView.bounds);
+     [self titleSelected:self.titleButtons[index] scrollVC:NO];
  }
  - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
- 
+     if(!decelerate){
+         [self scrollViewDidEndDecelerating:scrollView];
+     }
  }
- */
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

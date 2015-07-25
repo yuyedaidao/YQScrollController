@@ -20,5 +20,7 @@
 @property (nonatomic, strong) IBInspectable UIColor *titleColor;
 @property (nonatomic, strong) IBInspectable UIColor *titleSelectedColor;
 @property (nonatomic, strong) IBInspectable UIFont *titleFont;
-
+@property (nonatomic, assign) IBInspectable NSInteger firstSelectedIndex;
+@property (nonatomic, assign) NSInteger selectedIndex;
+- (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated;
 @end
