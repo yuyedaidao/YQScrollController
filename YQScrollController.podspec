@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "YQScrollController"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "一个容器类Controller,可以管理添加的ViewController之间的滑动切换."
 
   s.description  = <<-DESC
@@ -68,7 +68,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "6.0"
 
   #  When using multiple platforms
-   s.ios.deployment_target = "7.0"
+  # s.ios.deployment_target = "7.0"
   # s.osx.deployment_target = "10.7"
 
 
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/yuyedaidao/YQScrollController.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/yuyedaidao/YQScrollController.git", :tag => "0.0.2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
