@@ -7,7 +7,7 @@
 //
 
 #import "YQScrollController.h"
-
+#import "YQScrollView.h"
 @interface YQScrollController ()<UIScrollViewDelegate>
 
 
@@ -90,7 +90,7 @@
 
 - (void)prepareScrollView{
     
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.titleHeight, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)-self.titleHeight)];
+    self.scrollView = [[YQScrollView alloc] initWithFrame:CGRectMake(0, self.titleHeight, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)-self.titleHeight)];
     [self.view addSubview:self.scrollView];
     self.scrollView.bounces = NO;
     self.scrollView.pagingEnabled = YES;

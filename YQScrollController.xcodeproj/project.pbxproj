@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210579E41B6626BB00A6A5EF /* YQScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 210579E31B6626BB00A6A5EF /* YQScrollView.m */; };
 		218FD7C81B638D50002BD8CD /* yqscrollcontroller.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218FD7C71B638D50002BD8CD /* yqscrollcontroller.xcassets */; };
 		21BBB8661B62598600072BBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21BBB8651B62598600072BBD /* main.m */; };
 		21BBB8691B62598600072BBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21BBB8681B62598600072BBD /* AppDelegate.m */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		210579E21B6626BB00A6A5EF /* YQScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQScrollView.h; sourceTree = "<group>"; };
+		210579E31B6626BB00A6A5EF /* YQScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQScrollView.m; sourceTree = "<group>"; };
 		218FD7C71B638D50002BD8CD /* yqscrollcontroller.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = yqscrollcontroller.xcassets; sourceTree = "<group>"; };
 		21BBB8601B62598600072BBD /* YQScrollController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YQScrollController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BBB8641B62598600072BBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 			children = (
 				21BBB88A1B625B1D00072BBD /* YQScrollController.h */,
 				21BBB88B1B625B1D00072BBD /* YQScrollController.m */,
+				210579E21B6626BB00A6A5EF /* YQScrollView.h */,
+				210579E31B6626BB00A6A5EF /* YQScrollView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 				21BBB88C1B625B1D00072BBD /* YQScrollController.m in Sources */,
 				21BBB86C1B62598600072BBD /* ViewController.m in Sources */,
 				557CE9A21B6288A5008CC005 /* FirstViewController.m in Sources */,
+				210579E41B6626BB00A6A5EF /* YQScrollView.m in Sources */,
 				21BBB8691B62598600072BBD /* AppDelegate.m in Sources */,
 				21BBB8661B62598600072BBD /* main.m in Sources */,
 			);
