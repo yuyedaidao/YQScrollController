@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol YQScrollContrllerDelegate <NSObject>
+
+@optional
+- (void)yq_panGestureRecognizer:(UIPanGestureRecognizer *)gesture;
+
+@end
+
 @interface YQScrollView : UIScrollView
+
+@property (nonatomic, weak) id<YQScrollContrllerDelegate> yq_delegate;
 
 @end

@@ -7,11 +7,11 @@
 //
 
 #import "YQScrollController.h"
-#import "YQScrollView.h"
+
 @interface YQScrollController ()<UIScrollViewDelegate>
 
 
-@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) YQScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *containerViews;
 @property (nonatomic, strong) NSMutableArray *titleButtons;
 @property (nonatomic, strong) UIImageView *titleFlagImgView;
@@ -92,6 +92,7 @@
     
     self.scrollView = [[YQScrollView alloc] initWithFrame:CGRectMake(0, self.titleHeight, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)-self.titleHeight)];
     [self.view addSubview:self.scrollView];
+    self.scrollView.yq_delegate = self.yq_panDelegate;
     self.scrollView.bounces = NO;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.delegate = self;

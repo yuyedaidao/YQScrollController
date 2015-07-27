@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YQScrollView.h"
 
 @interface YQScrollController : UIViewController
 
@@ -26,5 +27,8 @@
  */
 @property (nonatomic, assign) IBInspectable CGFloat titleViewEdgePaddingRate;
 @property (nonatomic, assign) NSInteger selectedIndex;
+
+@property (nonatomic, weak) id<YQScrollContrllerDelegate> yq_panDelegate;
+
 - (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated;
 @end
