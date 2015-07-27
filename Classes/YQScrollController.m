@@ -64,7 +64,9 @@
     [titleBgView addSubview:self.titleFlagImgView];
     self.titleFlagImgView.frame = CGRectMake(0, 0, 59, self.titleHeight);
     NSAssert(self.viewControllers.count, @"大叔，你都没有给ViewController，我给你控制啥？");
-    self.segmentWidth = CGRectGetWidth(self.view.bounds)/self.viewControllers.count;
+    CGFloat width = self.titleViewEdgePaddingRate >= 1 ? CGRectGetWidth(self.view.bounds) : CGRectGetWidth(self.view.bounds) * (1-self.titleViewEdgePaddingRate);
+    CGFloat paddingLeft = (CGRectGetWidth(self.view.bounds)-width)/2;
+    self.segmentWidth = width/self.viewControllers.count;
     self.titleButtons = [NSMutableArray array];
     [self.viewControllers enumerateObjectsUsingBlock:^(UIViewController *obj, NSUInteger idx, BOOL *stop) {
         UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -75,7 +77,7 @@
         [titleBgView addSubview:titleButton];
         titleButton.contentEdgeInsets = UIEdgeInsetsMake(5, 15, 5, 15);
         [titleButton sizeToFit];
-        titleButton.center = CGPointMake(self.segmentWidth*idx+self.segmentWidth/2, CGRectGetHeight(titleBgView.bounds)/2);
+        titleButton.center = CGPointMake(paddingLeft+self.segmentWidth*idx+self.segmentWidth/2, CGRectGetHeight(titleBgView.bounds)/2);
         titleButton.tag = idx;
         [self.titleButtons addObject:titleButton];
         if(idx == self.firstSelectedIndex){

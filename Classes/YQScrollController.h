@@ -21,6 +21,10 @@
 @property (nonatomic, strong) IBInspectable UIColor *titleSelectedColor;
 @property (nonatomic, strong) IBInspectable UIFont *titleFont;
 @property (nonatomic, assign) IBInspectable NSInteger firstSelectedIndex;
+/**
+ *  标题视图左右两边留空占总宽度的比例
+ */
+@property (nonatomic, assign) IBInspectable CGFloat titleViewEdgePaddingRate;
 @property (nonatomic, assign) NSInteger selectedIndex;
 - (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated;
 @end
