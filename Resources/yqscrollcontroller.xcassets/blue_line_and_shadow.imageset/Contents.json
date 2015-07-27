@@ -11,7 +11,8 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "blue_line_and_shadow@3x.png"
     }
   ],
   "info" : {
